@@ -46,16 +46,6 @@ const CanvasComponent = ({
       isMounted = false;
     };
   }, [waldoFound, waldoPosition]);
-
-  useEffect(() => {
-    let isMounted = true;
-    if (isMounted) {
-      console.log(true);
-    }
-    return () => {
-      isMounted = false;
-    };
-  }, []);
   return (
     <canvas
       ref={canvasRef}
