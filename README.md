@@ -1,30 +1,31 @@
-# React + TypeScript + Vite
+# Where's Waldo Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+Welcome to the "Where's Waldo" game! This web application allows users to play a fun game where they need to find Waldo on a canvas by clicking on the screen. If the user clicks on the correct spot where Waldo is located, they will receive feedback indicating that they have found Waldo. If they miss, they'll be prompted to try again.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This game was developed as part of the Odin Project Curriculum.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Interactive canvas-based game built with React and TypeScript
+- User clicks on the canvas to find Waldo
+- Visual feedback when Waldo is found, including a black rectangle drawn around him
+- Clear instructions and feedback messages to guide the user
 
-- Configure the top-level `parserOptions` property like this:
+## Technologies Used
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- React: A JavaScript library for building user interfaces
+- TypeScript: A strongly typed programming language that builds on JavaScript
+- Vite: A build tool that provides a faster and leaner development experience for modern web projects
+- HTML5 Canvas API: Used for drawing graphics on the web page
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Usage
+
+- Playing the Game: Click on the canvas to guess where Waldo is located.
+- Feedback: A message will appear below the canvas indicating whether you found Waldo or need to try again.
+- Visual Indicator: When Waldo is found, a black rectangle will be drawn around him to indicate his position.
+
+## License
+
+This project is licensed under the MIT License.
