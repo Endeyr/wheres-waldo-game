@@ -50,8 +50,8 @@ function App() {
   };
   return (
     <>
-      <div className="flex flex-col items-center justify-center p-2 m-2">
-        <h1>Where's Waldo Game</h1>
+      <div className="m-2 flex h-[95dvh] flex-col items-center justify-start  p-2">
+        <h1 className="mb-2">Where's Waldo Game</h1>
         {gameStart ? (
           <>
             <CanvasComponent
@@ -75,14 +75,14 @@ function App() {
             </div>
           </>
         ) : (
-          <>
+          <div className="flex items-center justify-center h-full">
             <button
               onClick={() => setGameStart(true)}
               className="px-2 bg-blue-300 rounded-md btn"
             >
               Start Game
             </button>
-          </>
+          </div>
         )}
       </div>
     </>
