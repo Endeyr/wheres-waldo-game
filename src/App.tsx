@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import CanvasComponent from "./components/canvas";
+import HighScoreForm from "./components/high-score/high-score-form";
+import Modal from "./components/modal";
 
 function App() {
   const [gameStart, setGameStart] = useState(false);
   const [message, setMessage] = useState("");
+  const [openModal, setOpenModal] = useState(false);
   const [waldoFound, setWaldoFound] = useState(false);
   const [score, setScore] = useState(60);
   const waldoPosition = { x: 780, y: 264, width: 20, height: 30 };
@@ -32,10 +35,12 @@ function App() {
       x >= waldoPosition.x &&
       x <= waldoPosition.x + waldoPosition.width &&
       y >= waldoPosition.y &&
-      y <= waldoPosition.y + waldoPosition.height
+      y <= waldoPosition.y + waldoPosition.height &&
+      !waldoFound
     ) {
       setMessage("You found Waldo!");
       setWaldoFound(true);
+      setOpenModal(true);
     } else {
       if (!waldoFound) {
         setMessage("Try again.");
@@ -48,10 +53,13 @@ function App() {
     setWaldoFound(false);
     setScore(60);
   };
+  const closeModal = () => {
+    setOpenModal(false);
+  };
   return (
     <>
       <div className="m-2 flex h-[95dvh] flex-col items-center justify-start  p-2">
-        <h1 className="mb-2">Where's Waldo Game</h1>
+        <h1 className="mb-2">Where's Waldo</h1>
         {gameStart ? (
           <>
             <CanvasComponent
@@ -59,20 +67,31 @@ function App() {
               waldoFound={waldoFound}
               waldoPosition={waldoPosition}
             />
-            <div className="grid w-full grid-cols-1 mt-2 md:w-2/3 md:grid-cols-3">
-              <p className="flex items-center justify-center">{message}</p>
+            <div className="m-2 grid w-full grid-cols-1 gap-3 md:w-[1280px] md:grid-cols-3">
+              <p className="flex items-center justify-center w-full md:justify-start">
+                {message}
+              </p>
               {waldoFound && (
-                <button
-                  onClick={playAgain}
-                  className="btn flex items-center justify-center rounded-md bg-blue-300 px-2 md:w-[200px]"
-                >
-                  Play Again
-                </button>
+                <div className="flex items-center justify-center w-full">
+                  <button
+                    onClick={playAgain}
+                    className="btn flex items-center justify-center rounded-md bg-blue-300 px-2 md:w-[200px]"
+                  >
+                    Play Again
+                  </button>
+                </div>
               )}
               <p className="flex items-center justify-center w-full md:col-start-3 md:justify-end">
                 Score: {score}
               </p>
             </div>
+            <Modal isVisible={openModal} onClose={closeModal}>
+              <div className="flex items-center justify-center gap-2">
+                <h2>Congrats!</h2>
+                <p>You found Waldo!</p>
+              </div>
+              <HighScoreForm />
+            </Modal>
           </>
         ) : (
           <div className="flex items-center justify-center h-full">
