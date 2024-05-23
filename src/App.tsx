@@ -5,7 +5,7 @@ function App() {
   const [gameStart, setGameStart] = useState(false);
   const [message, setMessage] = useState("");
   const [waldoFound, setWaldoFound] = useState(false);
-  const [score, setScore] = useState(6);
+  const [score, setScore] = useState(60);
   const waldoPosition = { x: 780, y: 264, width: 20, height: 30 };
   useEffect(() => {
     const interval = setInterval(() => {
@@ -59,17 +59,17 @@ function App() {
               waldoFound={waldoFound}
               waldoPosition={waldoPosition}
             />
-            <div className="grid w-2/3 grid-cols-3 mt-2">
-              <p>{message}</p>
+            <div className="grid w-full grid-cols-1 mt-2 md:w-2/3 md:grid-cols-3">
+              <p className="flex items-center justify-center">{message}</p>
               {waldoFound && (
                 <button
                   onClick={playAgain}
-                  className="btn flex w-[200px] items-center justify-center rounded-md bg-blue-300 px-2"
+                  className="btn flex items-center justify-center rounded-md bg-blue-300 px-2 md:w-[200px]"
                 >
                   Play Again
                 </button>
               )}
-              <p className="flex justify-end w-full col-start-3">
+              <p className="flex items-center justify-center w-full md:col-start-3 md:justify-end">
                 Score: {score}
               </p>
             </div>
