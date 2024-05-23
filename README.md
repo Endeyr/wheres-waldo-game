@@ -4,7 +4,7 @@
 
 Welcome to the "Where's Waldo" game! This web application allows users to play a fun game where they need to find Waldo on a canvas by clicking on the screen. If the user clicks on the correct spot where Waldo is located, they will receive feedback indicating that they have found Waldo. If they miss, they'll be prompted to try again.
 
-This game was developed as part of the Odin Project Curriculum.
+This game was developed as part of the Odin Project Curriculum. Live [Demo](https://wheres-waldo-game.vercel.app/).
 
 ## Features
 
