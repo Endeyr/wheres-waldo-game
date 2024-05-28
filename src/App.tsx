@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import CanvasComponent from "./components/canvas";
-import HighScoreForm from "./components/high-score/high-score-form";
+import HighScore from "./components/high-score";
 import Modal from "./components/modal";
 
 function App() {
@@ -90,7 +90,7 @@ function App() {
                 <h2>Congrats!</h2>
                 <p>You found Waldo!</p>
               </div>
-              <HighScoreForm />
+              <HighScore score={score} />
             </Modal>
           </>
         ) : (
